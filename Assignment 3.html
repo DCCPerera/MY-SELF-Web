@@ -1,0 +1,179 @@
+<html>
+  <head>
+  <title>Welcome To Registration Form</title>
+<script type="text/javascript">
+       function registration()
+    {
+
+        var FirstName    = document.getElementById("t1").value;
+		var LastName     = document.getElementById("t2").value;
+		var Age          = document.getElementById("t3").value;
+		var MobileNumber = document.getElementById("t4").value;
+        var email        = document.getElementById("t5").value;
+		var UserID       = document.getElementById("t6").value;
+        var pwd          = document.getElementById("t7").value;           
+        var cpwd         = document.getElementById("t8").value;
+		
+		var pwd_expression = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/;
+        var letters = /^[A-Za-z]+$/;
+        var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+		var num = /^(?=.*?[0-9])/;
+		var mbl = /^(?=.*?[0-9])(?=.*?[-])/;
+		
+		
+		
+		
+		
+		if(FirstName=='')
+        {
+            alert('Please enter your First name');
+        }
+        else if(!letters.test(FirstName))
+        {
+            alert('Invalid Input for the First Name');
+        }
+		else if(LastName=='')
+        {
+            alert('Please enter your Last name');
+        }
+        else if(!letters.test(LastName))
+        {
+            alert('Invalid Input for the Last Name');
+        }
+		else if(!num.test(Age))
+        {
+            alert('Invalid Input for Age');
+        }
+		else if(Age< 20)
+        {
+            alert('You are too young for the registration');
+        }
+		else if(Age> 60)
+        {
+            alert('You are too old for the registration');
+        }
+		
+        
+		else if(!mbl.test(MobileNumber))
+        {
+            alert('Invalid Input for Mobile Number');
+			function myFun1() 
+		{
+             document.getElementById(MobileNumber).style.backgroundColor = "red";
+        }
+			
+			
+			
+        }
+		 else if(email=='')
+        {
+            alert('Please enter your user email id');
+        }
+		else if (!filter.test(email))
+        {
+            alert('Please provide valid email address!');
+			
+        }
+		
+		
+		else if(UserID =='')
+        {
+            alert('Please enter the user name.');
+        }
+        else if(!letters.test(UserID))
+        {
+            alert('User name field required only alphabet characters');
+        }
+		else if(document.getElementById("t6").value.length < 5 && document.getElementById("t6").value.length > 7)
+        {
+            alert ('User ID must be between 5 and 7');
+        }
+		
+		
+        else if(pwd=='')
+        {
+            alert('Please enter Password');
+        }
+		 else if(document.getElementById("t7").value.length =8)
+        {
+            alert ('Password  length is 8');
+        }
+		
+		
+		
+        else if(cpwd=='')
+        {
+            alert('Enter Confirm Password');
+        }
+        else if(!pwd_expression.test(pwd))
+        {
+            alert ('Upper case, Lower case, Special character and Numeric letter are required in Password filed');
+        }
+        else if(pwd != cpwd)
+        {
+            alert ('Password not Matched');
+        }
+      
+		 else
+        {                                           
+               alert('Thank You for Registration & You are Redirecting to Website');
+               
+        }
+    }
+			
+  </script>	
+  </head>
+
+    <body >
+ 
+    <div id="main">
+    <div class="h-tag" align="left">
+    <h2><center>Registion Form</center></h2>
+    </div>
+    
+    <div class="login">
+	<form>
+    <table cellspacing="5" align="center" cellpadding="4" border="0" width="500">
+    <tr>
+    <td align="left" width="27%">First name </td> <td width="0%"> :</td>
+    <td width="55%"><input type="text"  id="t1" class="tb" /></td>
+    </tr>
+	<td align="left" >Last name </td> <td> :</td>
+    <td ><input type="text"  id="t2" class="tb" /></td>
+    </tr>
+	<td align="left" >Age </td> <td> :</td>
+    <td ><input type="text"  id="t3" class="tb" /></td>
+    </tr>
+	<td align="left" >Mobile number </td> <td> :</td>
+    <td ><input  type="text"  id="t4" class="tb" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="XXX-XX-XXX" onkeypress="myFun1()" /></td>
+    </tr>
+	
+    <tr>
+    <td align="left">Email </td><td> :</td>
+    <td><input type="text" id="t5" class="tb" onkeypress="myFun2()" ></td>
+    </tr>
+    <tr>
+    <td align="left">User ID </td><td> :</td>
+    <td><input type="text" id="t6" class="tb" /></td>
+    </tr>
+    <tr>
+    <td align="left">Enter Password </td> <td> :</td>
+    <td><input type="password" id="t7" class="tb" /></td>
+    </tr>
+    <tr>
+    <td align="left">Confirm Password </td><td> :</td>
+    <td><input type="password" id="t8" class="tb" /></td>
+    </tr>
+    <tr style="height:50px;">
+    <td></td>
+    <td valign= "bottom"><input type="reset" value="Clear" id="res" class="btn" /></td>
+    <td valign= "bottom"><input type="submit" value="Submit" class="btn" onclick="registration()" /></td>
+    </tr>
+    </table>
+	</form>
+    </div>
+   
+    </div>
+    
+    </body>
+    </html>
